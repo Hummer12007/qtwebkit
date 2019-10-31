@@ -26,7 +26,7 @@
 #include <QStringList>
 #include <WebCore/ApplicationCacheStorage.h>
 #include <WebCore/DatabaseTracker.h>
-#include <WebCore/SchemeRegistry.h>
+#include <WebCore/LegacySchemeRegistry.h>
 #include <WebCore/SecurityOrigin.h>
 #include <WebCore/SecurityPolicy.h>
 #include <wtf/URL.h>
@@ -215,7 +215,7 @@ QList<QWebDatabase> QWebSecurityOrigin::databases() const
 */
 void QWebSecurityOrigin::addLocalScheme(const QString& scheme)
 {
-    SchemeRegistry::registerURLSchemeAsLocal(scheme);
+    LegacySchemeRegistry::registerURLSchemeAsLocal(scheme);
 }
 
 /*!
@@ -230,7 +230,7 @@ void QWebSecurityOrigin::addLocalScheme(const QString& scheme)
 */
 void QWebSecurityOrigin::removeLocalScheme(const QString& scheme)
 {
-    SchemeRegistry::removeURLSchemeRegisteredAsLocal(scheme);
+    LegacySchemeRegistry::removeURLSchemeRegisteredAsLocal(scheme);
 }
 
 /*!
@@ -243,7 +243,7 @@ void QWebSecurityOrigin::removeLocalScheme(const QString& scheme)
 */
 QStringList QWebSecurityOrigin::localSchemes()
 {
-    return SchemeRegistry::localSchemes();
+    return LegacySchemeRegistry::localSchemes();
 }
 
 
